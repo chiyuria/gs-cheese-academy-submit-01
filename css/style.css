@@ -1,0 +1,652 @@
+/* ここから下に記載していく */
+:root {
+  --accent-color: #ffd61a;
+  --base-font-color: #222222;
+  --hero-font-color: #ffffff;
+  --background-color: #fafafa;
+  --footer-background-color: #707070;
+}
+body {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  overflow-x: hidden;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header,
+.section-title,
+.section-subtitle,
+.btn,
+.footer {
+  font-family: "Outfit", sans-serif;
+}
+
+/* ---button--- */
+.btn {
+  font-size: 18px;
+  color: #ffffff;
+  background-color: var(--accent-color);
+  border: none;
+  height: 60px;
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  background-color: #e6c200;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(255, 216, 76, 0.4);
+  cursor: pointer;
+}
+
+/* ---HEADER--- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 121px;
+  /* padding: 20px 0; */
+  z-index: 0;
+}
+.logo img {
+  width: 70%;
+  height: auto; /* とりあえずauto */
+  margin-left: 50px; /* nav liのlast-childと合わせとく*/
+}
+.global-nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.global-nav li {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+.global-nav li:last-child {
+  margin-right: 50px; /* 右端のマージンもとりあえず50px */
+}
+.global-nav a {
+  position: relative;
+  font-size: 21px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.global-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #ffd61a;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.global-nav a:hover {
+  color: #000;
+}
+
+.global-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ---SECTION: HERO--- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 10;
+}
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--hero-font-color);
+  text-shadow: 0 0 15px #cbcbcb;
+  white-space: nowrap;
+  margin-bottom: 30px;
+}
+.hero h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--hero-font-color);
+  text-shadow: 0 0 15px #b1b1b1;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  color: var(--base-font-color);
+}
+.section-title.accent {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  color: var(--accent-color);
+}
+.section-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 60px;
+  color: var(--base-font-color);
+}
+p {
+  font-size: 16px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  color: var(--base-font-color);
+}
+
+/* ---SECTION: ABOUT--- */
+.about-text p:last-child {
+  margin-bottom: 80px;
+}
+.container-gallery {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 1200px;
+  gap: 0px;
+}
+.container-gallery img {
+  /* display: block; */
+  flex: 1;
+  max-width: 300px;
+}
+
+/* ---SECTION: COURSE--- */
+.course-text p {
+  margin-bottom: 60px;
+}
+
+/* ---SECTION: POINT--- */
+.point-item {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.point-img {
+  width: 600px; /*半分に強制固定*/
+  overflow: hidden; /*トリミングで解決*/
+}
+.point-description {
+  display: flex; /* display:flexの中でさらにdisplay:flexできた */
+  align-items: center;
+  width: 600px; /*半分に強制固定*/
+  background-color: #fafafa;
+}
+/* inner-leftの場合右に寄せる */
+.point-description:has(.point-inner-left) {
+  justify-content: flex-end;
+}
+.point-inner-right {
+  width: 430px;
+  margin-left: 50px;
+}
+.point-inner-left {
+  width: 430px;
+  margin-right: 50px;
+}
+.point-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 40px;
+  color: var(--base-font-color);
+}
+.point-text {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* ---SECTION: NEWS--- */
+.news-container ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+.news-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.news-item img {
+  width: 300px;
+}
+.news-description p {
+  width: 300px;
+  text-align: left;
+}
+.news-date p {
+  margin-top: 30px;
+  margin-bottom: 24px;
+  font-size: 18px;
+}
+.news-text p {
+  margin-bottom: 0px;
+}
+
+/* ---ACCESS--- */
+.access-content {
+  background-color: #fafafa;
+  padding-bottom: 30px;
+}
+.access-content .section-title {
+  margin-top: 60px;
+  padding-top: 60px;
+}
+.access-information {
+  margin: 0 auto;
+  margin-top: 60px;
+}
+.access-information tr {
+  height: 50px;
+}
+.access-information tr td:first-child {
+  width: 140px; /*だいたいこれくらい*/
+}
+.access-information tr td:last-child {
+  width: auto; /*変に大きくするとセンタリングずれ感出るからauto*/
+}
+
+/* --- CONTACT --- */
+.contact-text p {
+  margin-bottom: 30px; /*30pxで上書き、formtopmargin40pxで70px*/
+}
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 52px;
+  border-top: 1.3px solid #cacaca;
+  /* border-bottom: none;
+  border-left: none;
+  border-right: none; */
+}
+.form-item:first-child {
+  margin-top: 40px;
+}
+.form-item:nth-child(4) {
+  border-bottom: 1.3px solid #cacaca; /* selection用のボーダー */
+}
+.form-item:last-of-type {
+  border-bottom: 1.3px solid #cacaca;
+  margin-bottom: 30px;
+}
+.form-item label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  text-align: left;
+  width: 240px;
+  height: 100%;
+  border-right: 1px solid #cacaca;
+  /* border: 1px solid #bfbfbf; */
+  /* margin-top: 8px; */
+  /* margin-bottom: 8px; */
+  /* padding-top: 8px;
+  padding-bottom: 8px; */
+  padding-left: 16px;
+  /* padding-right: 64px; */
+  /* vertical-align: middle; */
+}
+.form-item input {
+  width: 328px;
+  height: 36px;
+  /* padding-top: 8px; */
+  /* padding-bottom: 8px; */
+  margin-left: 8px;
+  margin-right: 64px;
+  border: 1px solid #bfbfbf;
+}
+
+/* --- selection field --- */
+.form-item select {
+  width: 333px;
+  height: 36px;
+  /* padding-top: 8px; */
+  /* padding-bottom: 8px; */
+  margin-left: 8px;
+  margin-right: 64px;
+  border: 1px solid #bfbfbf;
+}
+/* --- checkbox field --- */
+.form-field {
+  display: flex;
+  flex-direction: row;
+  /* align-items: start; */
+  /* height: 52px; */
+  /* border: 1.3px solid #cacaca; */
+  /* border-top: 1.3px solid #cacaca; */
+  /* border-left: none;
+  border-right: none; */
+}
+.visually-hidden {
+  display: none; /*とりあえず消して何とかする*/
+}
+.form-title {
+  /* display: flex;
+  align-items: flex-start; */
+  width: 241px;
+  height: 172px;
+  padding-top: 8px;
+  padding-left: 10px;
+  border-right: 1px solid #cacaca;
+}
+.form-field-options {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  width: 400px;
+  padding-top: 8px;
+}
+.form-field-options label {
+  margin-bottom: 24px;
+}
+.form-field-options input[type="checkbox"] {
+  margin-left: 8px; /*inputに直接マージンが正解だった*/
+}
+
+/* ---detail--- */
+.form-item.detail {
+  align-items: flex-start;
+  height: auto;
+}
+.form-item.detail label {
+  display: flex;
+  align-items: flex-start;
+  /* margin-top: 8px; */
+  height: 136px;
+  padding-top: 8px;
+}
+textarea {
+  width: 328px;
+  height: 120px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  margin-right: 64px;
+  border: 1px solid #bfbfbf;
+  resize: none; /*サイズを固定する*/
+}
+/* ---footer--- */
+.footer {
+  background-color: var(--footer-background-color);
+  text-align: center;
+  color: #ffffff;
+  margin-top: 140px;
+  padding: 30px 0;
+}
+
+/* ------ANIMATION------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(160px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section {
+  scroll-margin-top: 200px;
+}
+
+.access {
+  scroll-margin-top: 140px;
+}
+
+/* TOP戻るボタン */
+
+#page-top {
+  position: fixed;
+  right: 24px;
+  bottom: 32px;
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  transform: rotate(90deg);
+  line-height: 1.5rem;
+  letter-spacing: 0.05em;
+  padding-left: 36px;
+  border-top: 2px solid var(--accent-color);
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  z-index: 1;
+}
+
+#page-top::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 16px;
+  border-top: 2px solid var(--accent-color);
+  transform: rotate(35deg);
+  transform-origin: left top;
+}
+
+#page-top:hover {
+  opacity: 1;
+  color: #000;
+  transform: rotate(90deg) translateY(-4px);
+  text-shadow: 0 0 6px rgba(255, 216, 76, 0.4);
+}
+
+/* ---INTRO ANIMATION--- */
+.intro {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(255, 216, 76, 1);
+  z-index: 9999;
+  opacity: 1;
+  overflow: hidden;
+  transition:
+    background-color 0.4s ease,
+    opacity 0.5s ease 0.5s; /* ← 背景が終わってから全体を消す */
+}
+/* 背景を溶かしながら退場 */
+.intro.hide {
+  background: rgba(255, 216, 76, 0);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* テキストはもっと早く消す */
+.intro.hide .intro-copy {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+
+/* テキスト */
+.intro-copy {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 5rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 0.8s forwards; /* 1.6秒後にフェードイン */
+  z-index: 10;
+}
+
+/* チーズ全体 */
+.cheese-holes {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffd61a;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* チーズの穴の共通設定 */
+.hole {
+  position: absolute;
+  background: #b67c3b;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  animation: popIn 0.4s ease forwards;
+  z-index: 1;
+}
+
+/* チーズの穴ひとつひとつの配置 */
+.hole:nth-child(1) {
+  width: 8vw;
+  height: 8vw;
+  top: 12%;
+  left: 28%;
+  animation-delay: 0s;
+}
+.hole:nth-child(2) {
+  width: 12vw;
+  height: 12vw;
+  top: 30%;
+  left: 70%;
+  animation-delay: 0.1s;
+}
+.hole:nth-child(3) {
+  width: 18vw;
+  height: 18vw;
+  top: 55%;
+  left: 15%;
+  animation-delay: 0.2s;
+}
+.hole:nth-child(4) {
+  width: 10vw;
+  height: 10vw;
+  top: 70%;
+  left: 60%;
+  animation-delay: 0.3s;
+}
+.hole:nth-child(5) {
+  width: 14vw;
+  height: 14vw;
+  top: 82%;
+  left: 82%;
+  animation-delay: 0.4s;
+}
+
+/* アニメーション定義 */
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= */
+/* 初期状態：非表示・少し拡大 */
+/* ========================= */
+.hero img {
+  transform: scale(1.4);
+  opacity: 0;
+  transition: transform 1.2s ease, opacity 1.2s ease;
+}
+
+/* ========================= */
+/* Hero登場アニメーション */
+/* ========================= */
+.hero.show img {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 5;
+}
+
+.hero-text h1,
+.hero-text h2 {
+  opacity: 0;
+  transform: none;                /* Y方向の動き削除 */
+  transition: opacity 0.8s ease;  /* フェードだけに */
+}
+
+/* 順にフェードイン */
+.hero.show .hero-text h1 {
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
+.hero.show .hero-text h2 {
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
