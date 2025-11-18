@@ -13,8 +13,7 @@
 
 # ③アプリのデプロイURL
 
-https://chiyuria.github.io/gs-cheese-academy-submit/
-
+https://chiyuria.github.io/gs-cheese-academy-submit-01/
 ---
 
 # ④アプリのログイン用IDまたはPassword
